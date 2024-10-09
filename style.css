@@ -1,0 +1,208 @@
+/* الأنماط العامة */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.5s ease;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* السمات بناءً على حالة الطقس */
+.default-theme {
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+}
+
+.clear-theme {
+    background: linear-gradient(to right, #fceabb, #f8b500);
+}
+
+.clouds-theme {
+    background: linear-gradient(to right, #bdc3c7, #2c3e50);
+}
+
+.rain-theme {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+}
+
+.snow-theme {
+    background: linear-gradient(to right, #e6dada, #274046);
+}
+
+.thunderstorm-theme {
+    background: linear-gradient(to right, #373b44, #4286f4);
+}
+
+.atmosphere-theme {
+    background: linear-gradient(to right, #89f7fe, #66a6ff);
+}
+
+/* العنوان الرئيسي */
+h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    direction: rtl; /* لضبط اتجاه النص */
+}
+
+/* مجموعة الإدخال */
+.input-group {
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    direction: rtl; /* لضبط اتجاه النص */
+    margin-bottom: 20px;
+}
+
+#city-input {
+    border-right: none;
+    padding-left: 20px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    transition: box-shadow 0.3s ease;
+}
+
+#city-input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+#city-input::placeholder {
+    color: #aaa;
+    opacity: 1;
+    transition: color 0.3s ease;
+}
+
+#city-input:focus::placeholder {
+    color: transparent;
+}
+
+#city-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.city-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: right; /* لضبط اتجاه النص */
+}
+
+.city-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* زر البحث */
+#get-weather-btn {
+    border-radius: 0 50px 50px 0;
+    padding: 0 15px;
+    transition: background-color 0.3s ease;
+}
+
+#get-weather-btn:hover {
+    background-color: #007bff;
+}
+
+/* تبديل وحدة درجة الحرارة */
+#toggle-unit {
+    border-radius: 20px;
+    padding: 5px 15px;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-unit:hover {
+    background-color: #6c757d;
+}
+
+/* كاردات الطقس */
+#weather-result .card {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#weather-result .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px;
+    transition: transform 0.3s ease;
+}
+
+.weather-icon:hover {
+    transform: scale(1.1);
+}
+
+/* مؤشر التحميل */
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .weather-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    #weather-result .card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .weather-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* تحسينات الوصول */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
